@@ -1,0 +1,16 @@
+app:
+  name: node-hostname
+  replicas: 3
+  image: zasern/urithiru-public:node-hostname-server
+  port: 3000
+  portName: http-web-svc
+service:
+  name: node-hostname-service
+  app: node-hostname
+  port: 3000
+  targetPort: http-web-svc
+
+
+
+
+

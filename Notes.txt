@@ -1,0 +1,20 @@
+
+Create a Kubernetes cluster
+I created a basic cluster using minikube
+
+Containerize the application using Docker (https://www.docker.com/)
+Containarised the application using docker init and then tried running the image locally to see that it functions as expected.
+
+Push the container image to a Container Registry 
+I created an account at dockerhub and registered a public repository and pushed the image to the repository
+
+Run the application inside your Kubernetes cluster. The application should be accessible from a browser.
+I first got the application to run with a single yaml file for both the deployment and the services. Then I tested this with port forwarding to see that the application was reachable. I created a basic helm chart to be able to install the application as a package.
+
+
+TODO:
+- setup LoadBalancer so that application can be reached externally with hostname and cert.
+- maybe look into pod securities that would be needed for this application?
+- decide on how the application should scale, limit with resources? how many idle? etc.
+- test an update for the application? How should it rollout? etc.
+- push finished helm package to repository.

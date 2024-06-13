@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-hostname
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-hostname
+  template:
+    metadata:
+      labels:
+        app: node-hostname
+    spec:
+      containers:
+        - name: app
+          image: zasern/urithiru-public:node-hostname-server
+          ports:
+            - containerPort: 3000
+              name: http-web-svc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-hostname-service
+spec:
+  selector:
+    app: node-hostname
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: http-web-svc
